@@ -1,6 +1,8 @@
-import { ApexGantt, type GanttUserOptions, type Task } from 'apexgantt';
-import { LitElement, nothing } from 'lit';
+import type { GanttUserOptions, Task } from 'apexgantt';
+import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
+import { createRef, ref } from 'lit/directives/ref.js';
+import { ApexModelController } from './controller.js';
 import { registerComponent } from './register.js';
 
 export class ApexGanttChart extends LitElement {
@@ -10,61 +12,32 @@ export class ApexGanttChart extends LitElement {
     registerComponent(ApexGanttChart);
   }
 
-  private _options?: GanttUserOptions;
-  private _model?: ApexGantt;
+  private readonly _container = createRef<HTMLDivElement>();
+  private readonly _model = new ApexModelController(this, this._container);
 
   @property({ attribute: false })
   set options(value: GanttUserOptions) {
-    this._options = value;
-    this._updateOrCreateModel();
+    this._model.options = value;
   }
 
   get options(): GanttUserOptions | undefined {
-    return this._options;
+    return this._model.options;
   }
 
-  private _updateOrCreateModel(): void {
-    if (this._options) {
-      if (this._model) {
-        this._model.update(this._options);
-      } else {
-        this._model = new ApexGantt(this, this._options);
-      }
-    }
-  }
-
-  protected override createRenderRoot(): this {
-    return this;
-  }
-
-  protected override updated(): void {
-    this._model?.render();
-  }
-
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this._updateOrCreateModel();
-  }
-
-  override disconnectedCallback(): void {
-    super.disconnectedCallback();
-    this._model?.destroy();
+  updateTask(taskId: string, updatedTask: Partial<Task>) {
+    this._model.updateTask(taskId, updatedTask);
   }
 
   zoomIn(): void {
-    this._model?.zoomIn();
+    this._model.zoomIn();
   }
 
   zoomOut(): void {
-    this._model?.zoomOut();
+    this._model.zoomOut();
   }
 
-  updateTask(taskId: string, updatedTask: Partial<Task>): void {
-    this._model?.updateTask(taskId, updatedTask);
-  }
-
-  protected override render(): symbol {
-    return nothing;
+  protected override render() {
+    return html`<div ${ref(this._container)}></div>`;
   }
 }
 
