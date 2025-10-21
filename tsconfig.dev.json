@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "rootDir": "./"
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*",
+    "dev/**/*",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ]
+}

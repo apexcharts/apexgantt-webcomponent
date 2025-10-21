@@ -1,0 +1,11 @@
+:root {
+  font-family: sans-serif;
+}
+
+apex-gantt-chart {
+  margin: 0 1rem;
+}
+
+.title {
+  font-size: 2rem;
+}

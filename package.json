@@ -1,0 +1,46 @@
+{
+  "name": "apexgantt-webcomponent",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "https://github.com/apexcharts/apexgantt-webcomponent#readme",
+  "bugs": {
+    "url": "https://github.com/apexcharts/apexgantt-webcomponent/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apexcharts/apexgantt-webcomponent.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "vite --config vite.config.ts",
+    "build": "tsc && vite build --config vite.config.ts --emptyOutDir",
+    "lint": "biome lint",
+    "fix": "biome check --fix",
+    "test": "vitest run --config vitest.config.ts",
+    "test:watch": "vitest --config vitest.config.ts",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "apexgantt": "^3.0.0",
+    "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.6",
+    "@types/node": "^24.9.1",
+    "@vitest/browser": "^3.2.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.5",
+    "playwright": "^1.56.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.11",
+    "vitest": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,jsx,tsx}": [
+      "biome check --fix --no-errors-on-unmatched"
+    ]
+  }
+}
