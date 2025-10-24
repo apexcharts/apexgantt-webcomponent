@@ -1,4 +1,4 @@
-import type { GanttUserOptions, Task } from 'apexgantt';
+import type { GanttUserOptions, TaskInput } from 'apexgantt';
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { createRef, ref } from 'lit/directives/ref.js';
@@ -24,8 +24,12 @@ export class ApexGanttChart extends LitElement {
     return this._model.options;
   }
 
-  updateTask(taskId: string, updatedTask: Partial<Task>) {
+  updateTask(taskId: string, updatedTask: Partial<TaskInput>): void {
     this._model.updateTask(taskId, updatedTask);
+  }
+
+  updateOptions(options: GanttUserOptions): void {
+    this._model.options = options;
   }
 
   zoomIn(): void {

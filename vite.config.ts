@@ -6,10 +6,12 @@ export default defineConfig({
 
   build: {
     outDir: resolve(__dirname, 'dist'),
+    emptyOutDir: false,
+    sourcemap: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'ApexGanttChart',
-      fileName: 'index.js',
+      fileName: (format, name) => `${name}.${format}.min.js`,
       formats: ['es'],
     },
     rollupOptions: {

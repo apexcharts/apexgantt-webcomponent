@@ -1,9 +1,14 @@
-/** biome-ignore-all lint/suspicious/noExplicitAny: Fix any casts once the types are fixed in the gantt package. */
-
 import { css, html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { ApexGanttChart } from '../src/gantt-chart.js';
-import { annotationsConfig, basicConfig, withInteractions } from './config.js';
+import {
+  annotationsConfig,
+  basicConfig,
+  customColors,
+  milestones,
+  resourceManagement,
+  withInteractions,
+} from './config.js';
 
 ApexGanttChart.register();
 
@@ -17,13 +22,22 @@ export class AppLight extends LitElement {
     return html`
       <h1>Light DOM</h1>
       <p class="title">Basic</p>
-      <apex-gantt-chart .options=${basicConfig as any}></apex-gantt-chart>
+      <apex-gantt-chart .options=${basicConfig}></apex-gantt-chart>
 
       <p class="title">Gantt with annotations</p>
-      <apex-gantt-chart .options=${annotationsConfig as any}></apex-gantt-chart>
+      <apex-gantt-chart .options=${annotationsConfig}></apex-gantt-chart>
 
       <p class="title">Gantt with interactions</p>
-      <apex-gantt-chart .options=${withInteractions as any}></apex-gantt-chart>
+      <apex-gantt-chart .options=${withInteractions}></apex-gantt-chart>
+
+      <p class="title">Gantt with custom colors</p>
+      <apex-gantt-chart .options=${customColors}></apex-gantt-chart>
+
+      <p class="title">Milestones</p>
+      <apex-gantt-chart .options=${milestones}></apex-gantt-chart>
+
+      <p class="title">Resource management</p>
+      <apex-gantt-chart .options=${resourceManagement}></apex-gantt-chart>
     `;
   }
 }
@@ -44,13 +58,22 @@ export class AppShadow extends LitElement {
     return html`
       <h1>Shadow DOM</h1>
       <p class="title">Basic</p>
-      <apex-gantt-chart .options=${basicConfig as any}></apex-gantt-chart>
+      <apex-gantt-chart .options=${basicConfig}></apex-gantt-chart>
 
       <p class="title">Gantt with annotations</p>
-      <apex-gantt-chart .options=${annotationsConfig as any}></apex-gantt-chart>
+      <apex-gantt-chart .options=${annotationsConfig}></apex-gantt-chart>
 
       <p class="title">Gantt with interactions</p>
-      <apex-gantt-chart .options=${withInteractions as any}></apex-gantt-chart>
+      <apex-gantt-chart .options=${withInteractions}></apex-gantt-chart>
+
+      <p class="title">Gantt with custom colors</p>
+      <apex-gantt-chart .options=${customColors}></apex-gantt-chart>
+
+      <p class="title">Milestones</p>
+      <apex-gantt-chart .options=${milestones}></apex-gantt-chart>
+
+      <p class="title">Resource management</p>
+      <apex-gantt-chart .options=${resourceManagement}></apex-gantt-chart>
     `;
   }
 }

@@ -1,4 +1,4 @@
-import { ApexGantt, type GanttUserOptions, type Task } from 'apexgantt';
+import { ApexGantt, type GanttUserOptions, type TaskInput } from 'apexgantt';
 import type { ReactiveController, ReactiveControllerHost } from 'lit';
 import type { Ref } from 'lit/directives/ref.js';
 
@@ -47,7 +47,7 @@ export class ApexModelController implements ReactiveController {
     }
   }
 
-  updateTask(taskId: string, updatedTask: Partial<Task>): void {
+  updateTask(taskId: string, updatedTask: Partial<TaskInput>): void {
     this._model?.updateTask(taskId, updatedTask);
   }
 

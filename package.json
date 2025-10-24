@@ -13,10 +13,16 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
   "scripts": {
     "start": "vite --config vite.config.ts",
-    "build": "tsc && vite build --config vite.config.ts --emptyOutDir",
+    "build": "tsc && vite build --config vite.config.ts",
     "lint": "biome lint",
     "fix": "biome check --fix",
     "test": "vitest run --config vitest.config.ts",
@@ -24,19 +30,20 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "apexgantt": "^3.0.0",
+    "apexgantt": "^3.1.0",
     "lit": "^3.3.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.6",
+    "@biomejs/biome": "2.2.7",
     "@types/node": "^24.9.1",
-    "@vitest/browser": "^3.2.4",
+    "@vitest/browser": "^4.0.2",
+    "@vitest/browser-playwright": "^4.0.2",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.5",
+    "lint-staged": "^16.2.6",
     "playwright": "^1.56.1",
     "typescript": "^5.9.3",
-    "vite": "^7.1.11",
-    "vitest": "^3.2.4"
+    "vite": "^7.1.12",
+    "vitest": "^4.0.2"
   },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,jsx,tsx}": [
