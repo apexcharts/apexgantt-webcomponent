@@ -1,6 +1,6 @@
 {
   "name": "apexgantt-webcomponent",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "homepage": "https://github.com/apexcharts/apexgantt-webcomponent#readme",
   "bugs": {
@@ -10,9 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/apexcharts/apexgantt-webcomponent.git"
   },
-  "license": "ISC",
+  "license": "See License in LICENSE",
   "author": "",
   "type": "module",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
