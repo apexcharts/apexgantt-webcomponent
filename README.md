@@ -1,7 +1,6 @@
 # ApexGantt Web Component
 
 [![npm version](https://img.shields.io/npm/v/apexgantt-webcomponent.svg)](https://www.npmjs.com/package/apexgantt-webcomponent)
-[![License](https://img.shields.io/github/license/apexcharts/apexgantt-webcomponent.svg)](https://github.com/apexcharts/apexgantt-webcomponent/blob/main/LICENSE)
 
 A modern, lightweight web component wrapper for [ApexGantt](https://apexcharts.com/apexgantt/), built with [Lit](https://lit.dev/). Create interactive Gantt charts with minimal setup and maximum flexibility.
 

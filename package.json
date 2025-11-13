@@ -1,7 +1,7 @@
 {
   "name": "apexgantt-webcomponent",
   "version": "0.0.1",
-  "description": "",
+  "description": "Web Component Wrapper for ApexGantt",
   "homepage": "https://github.com/apexcharts/apexgantt-webcomponent#readme",
   "bugs": {
     "url": "https://github.com/apexcharts/apexgantt-webcomponent/issues"
