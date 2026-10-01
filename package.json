@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/apexcharts/apexgantt-webcomponent.git"
   },
-  "license": "See License in LICENSE",
+  "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "files": [
     "dist",
