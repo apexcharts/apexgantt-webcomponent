@@ -228,6 +228,24 @@ ganttChart.addEventListener('gantt-task-update-success', (event) => {
 });
 ```
 
+## Using with Ignite UI
+
+From ApexGantt 3.21.0 the chart can follow an Ignite UI theme loaded on the page: bars, text, gridlines, the header, the tooltip, the font, and light or dark. The theming is a free add-on in the `apexgantt` package. The component's `apexgantt` dependency allows older versions, so make sure 3.21.0 or later is installed (`npm install apexgantt@^3.21.0` if your lockfile has an older one). Import the add-on once, before the first chart renders:
+
+```javascript
+import 'apexgantt/ignite-ui';
+```
+
+Without a bundler, import `apexgantt/ignite-ui` through the same import map that resolves `apexgantt`, or load `apexgantt.ignite-ui.min.js` with a classic `<script>` tag anywhere before the element first renders (the add-on registers itself on a page-wide registry, so it does not need the component's module graph).
+
+The component passes `options` to the chart as they are, so the switches are plain options:
+
+- Leave `theme` and `backgroundColor` out of `options` to follow the Ignite UI variant: a dark Ignite UI theme gives the chart its dark colours. A `theme` or `backgroundColor` you set wins over the variant.
+- `theme` also takes the name of a theme registered with `registerTheme` from the `apex-commons` package (`import { registerTheme } from 'apex-commons'`). The registry is shared by every Apex product on the page; the ApexGantt README ("Named themes") lists the tokens a theme can set.
+- An option you pass, an `--apex-gantt-*` variable and an `--apx-*` token all win over the Ignite UI tokens.
+- `designSystem: false` turns the add-on off for one chart; `tokens: false` stops the chart reading the `--apx-*` tokens and the design system.
+- There is no `refreshTokens()`: the chart reads the tokens each time it renders, so after swapping the Ignite UI stylesheet call `ganttChart.requestUpdate()`, which renders the chart again without touching its data.
+
 ## Configuration Options
 
 For a complete list of configuration options, please refer to the [ApexGantt documentation](https://apexcharts.com/apexgantt/docs/options/).
